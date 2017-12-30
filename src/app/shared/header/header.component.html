@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col-md-10">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" routerLink="">
+          <img src="assets/img/jj.PNG" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *appShowAuthed="true">
+
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="">Jobs
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Reports
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Messages</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                <i class="fa fa-question" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true"></i> Massay Bah
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <button class="btn dropdown-item" (click)="signout()">sign out</button>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *appShowAuthed="false">
+
+                      <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                              <a class="nav-link" href="#">How it works?</a>
+                            </li>
+                        <li class="nav-item">
+                          <a class="nav-link"  routerLink="">Jobs
+                            <span class="sr-only">(current)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" routerLink="#">Employers</a>
+                      </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" routerLink="#">Job Seekers</a>
+                      </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-success" routerLink="login">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" routerLink="register" >Sign up</a>
+                          </li>
+                      </ul>
+                    </div>
+      </nav>
+    </div>
+  </div>
+</div>

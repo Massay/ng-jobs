@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-md-6">
+
+<div class="card">
+    <div class="card-header">
+      Register
+    </div>
+    <div class="card-body">
+
+        <form [formGroup]="fg" class="container" id="needs-validation" novalidate (ngSubmit)="createAccount()">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+
+                <div class="input-group margin-bottom-sm">
+                  <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                  <input  formControlName="firstname" class="form-control" type="text" placeholder="First name">
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                  <input  formControlName="lastname" class="form-control" type="text" placeholder="Last name">
+                </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="input-group margin-bottom-sm">
+                  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+                  <input (keyup)="searchTerm$.next($event.target.value)" formControlName="email" class="form-control" type="text" placeholder="Email address">
+
+                </div>
+                <small id="emailHelp" *ngIf="!emailvalid && fg.controls['email'].touched" class="form-text text-danger">
+                    This email is already taken
+                </small>
+
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-success mt-4"   [disabled]="!fg.valid || !emailvalid" type="submit">Get Started</button>
+            </div>
+          </form>
+    </div>
+  </div>
+
+        </div>
+    </div>
+</div>
+

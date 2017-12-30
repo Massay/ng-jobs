@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-md-4">
+
+<div class="card">
+    <div class="card-header">
+      Login
+    </div>
+    <div class="card-body">
+      <form [formGroup]="fg" (ngSubmit)="login()" >
+          <div class="form-group">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+              <input formControlName="email" class="form-control" type="text" placeholder="User">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
+              <input formControlName="password" class="form-control" type="password" placeholder="Password">
+            </div>
+          </div>
+          <button type="submit" class=" btn btn-success">Log in</button>
+        </form>
+    </div>
+  </div>
+
+        </div>
+    </div>
+</div>
+

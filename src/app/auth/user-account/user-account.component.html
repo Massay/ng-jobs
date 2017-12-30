@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row justify-content-md-center mt-3">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Final Registeration
+        </div>
+        <div class="card-body">
+          <div class="text-center">
+              <h4>Complete your Account</h4>
+              <h6>{{ fData.email }}</h6>
+          </div>
+
+          <form [formGroup]="fg" class="container" id="needs-validation" (ngSubmit)="register()">
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="input-group margin-bottom-sm">
+                  <span class="input-group-addon">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <select formControlName="address" class="form-control" required>
+                      <option value="">Open this select menu</option>
+                      <option value="1">Serrekunda</option>
+                      <option value="2">Banjul</option>
+                      <option value="3">Bakau</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="input-group margin-bottom-sm">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input formControlName="password" class="form-control" type="password" placeholder="Create a password">
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <h6>I want to:</h6>
+              <ngb-tabset (tabChange)="beforeChange($event)">
+                  <ngb-tab id="1" title="I want to hire">
+                    <ng-template ngbTabContent>
+
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab id="2" title="I want to work">
+                    <ng-template ngbTabContent>
+                        <div class="form-group mt-3">
+                            <div class="col-md-12">
+                              <div class="input-group margin-bottom-sm">
+                                <span class="input-group-addon">
+                                  <i class="fa fa-address-card fa-fw" aria-hidden="true"></i>
+                                </span>
+                                <input type="text" formControlName="username" class="form-control" placeholder="username">
+                              </div>
+                            </div>
+                          </div>
+                    </ng-template>
+                  </ngb-tab>
+              </ngb-tabset>
+            </div>
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                          <input formControlName="terms_check" type="checkbox" class="form-check-input">
+                          Terms and conditions
+                        </label>
+                      </div>
+                      <div class="form-check my-3">
+                          <label class="form-check-label">
+                            <input formControlName="notifications_check" type="checkbox" class="form-check-input">
+                            Emails and other notifications
+                          </label>
+                      </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-success mt-4"  type="submit">Next</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
