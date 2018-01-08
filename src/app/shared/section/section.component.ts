@@ -8,9 +8,20 @@ export class SectionComponent implements OnInit {
   @Input() title: string;
   @Input() image: string;
   @Input() text: string;
-  constructor() { }
+  @Input() color: string;
+  @Input() LeftPosition: boolean;
+  @Input() RightPosition: boolean;
+  constructor() {
+      this.color = 'bg-dark';
+  }
 
   ngOnInit() {
+    if (this.LeftPosition) {
+      this.RightPosition = false;
+    }
+    if (!this.LeftPosition) {
+      this.RightPosition = true;
+    }
   }
 
 }

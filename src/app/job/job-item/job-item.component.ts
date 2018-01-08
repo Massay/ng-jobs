@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Job } from '../../shared/models/job.model';
 
 @Component({
   selector: 'app-job-item',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job-item.component.css']
 })
 export class JobItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() job: Job;
+  @Output() onJobSelected: EventEmitter<Job>;
+  constructor() { 
+    this.onJobSelected = new EventEmitter();
+  }
 
   ngOnInit() {
   }
+
+
+  Jobselect(job: Job){
+    this.onJobSelected.emit(job);
+  }
+
+  
 
 }

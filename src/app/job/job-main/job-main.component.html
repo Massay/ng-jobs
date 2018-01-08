@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-8">
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-3">
+         <select name="" class="form-control" id="">
+            <option value="">All Categories</option>
+         </select>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-secondary">search</button>
+    </div>
+  
+</div>
+<div class="row">
+    <div class="col-md-1">filter</div>
+    <div class="col-md-2">experience</div>
+    <div class="col-md-2">location</div>
+    <div class="col-md-2">job type</div>
+    <div class="col-md-2">price</div>
+    <div class="col-md-3">Sort By: Latest</div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-job-item-list [jobs]='jobs' (selectedJob)="selectJob($event)" ></app-job-item-list>
+  </div>
+  <div class="col-md-6">
+    <app-job-details [job]='currentSelectedJob'></app-job-details>
+  </div>
+</div>

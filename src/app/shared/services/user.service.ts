@@ -25,6 +25,11 @@ export class UserService {
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
+  private userTySupebject = new ReplaySubject<boolean>(1);
+  public userType = this.userTySupebject.asObservable();
+
+  private isEmployerSubject = new ReplaySubject<boolean>(1);
+  public isEmployer = this.isEmployerSubject.asObservable();
 
   constructor (
     private apiService: ApiService,
@@ -43,7 +48,7 @@ export class UserService {
       .subscribe(
         data => {
           console.log('poplulate data => ', data.data);
-          this.setAuth(data.data, this.jwtService.getToken().toString());
+          this.setAuth(data.data.user, this.jwtService.getToken().toString());
           this.router.navigateByUrl(this.location.path());
         },
         err => {
@@ -69,6 +74,14 @@ export class UserService {
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
+    if (user.userable_type!==undefined && user.userable_type.toLowerCase().includes('employer')) {
+        this.isEmployerSubject.next(true);
+        // console.log('em true');
+    }else if  (user.userable_type!==undefined && user.userable_type.toLowerCase().includes('seeker')) {
+      this.isEmployerSubject.next(false);
+      // console.log('seek true');
+    }
+    // console.log('done true',user.userable_type,user['user']);
   }
 
   purgeAuth() {

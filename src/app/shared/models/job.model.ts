@@ -10,7 +10,7 @@ export class Job{
     type_id: number;
     level_id: number;
     status_id: number;
-    categories: Category[];
+    categories: any[];
     type: Type;
     level: Level;
     status: Status;

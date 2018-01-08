@@ -21,28 +21,9 @@
   <!-- <app-section [title]="this amazing" [image]="notebook-1280538_1920.jpg" [text]="hello world">
 
   </app-section> -->
-  <div class="row">
-          <div class="col-md-6">
-            <h5>Why look to the Gambians?</h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur laborum ipsa, odio, repudiandae placeat cumque,
-            saepe maiores illo voluptates deserunt molestias similique molestiae. Sunt et ipsa consequatur qui ea temporibus laboriosam
-            reprehenderit ad exercitationem fugit, perferendis natus necessitatibus ex!
-          </div>
-          <div class="col-md-6">
-              <img class="img-fluid" src="assets/img/notebook-1280538_1920.jpg" alt="some nice logo">
-          </div>
-  </div>
-  <div class="row">
-      <div class="col-md-6">
-            <img class="img-fluid" src="assets/img/notebook-1280538_1920.jpg" alt="some nice logo">
-      </div>
-      <div class="col-md-6">
-          <h5>Why look to the Gambians?</h5>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur laborum ipsa, odio, repudiandae placeat cumque,
-          saepe maiores illo voluptates deserunt molestias similique molestiae. Sunt et ipsa consequatur qui ea temporibus laboriosam
-          reprehenderit ad exercitationem fugit, perferendis natus necessitatibus ex!
-      </div>
-    </div>
+  <app-section [color]="'bg-light'" [title] = "'this is really cool 1'" [LeftPosition]="true"  [image]="'notebook-1280538_1920.jpg'" [text]="'this is a test and i love it 1'"></app-section>
+  <app-section [color]="'bg-primary'" [title] = "'this is really cool 2'" [RightPosition]="true" [image]="'notebook-1280538_1920.jpg'" [text]="'this is a test and i love it 2'"></app-section>
+
   <div class="row">
     <div class="col-md-12 text-center">
       <h5>Current jobs</h5>
@@ -98,3 +79,6 @@
 
 
 </div>
+
+
+<app-footer></app-footer>

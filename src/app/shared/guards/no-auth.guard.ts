@@ -19,7 +19,7 @@ export class NoAuthGuard implements CanActivate {
             console.log(' no auth guard value => ', data);
             // tslint:disable-next-line:one-line
             if (!data){
-                // this.router.navigate(['/home']);
+                this.router.navigate(['jobs']);
             }
       } );
   }
