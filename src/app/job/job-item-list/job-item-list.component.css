@@ -1,0 +1,8 @@
+app-job-item{
+  margin: 20px 0;
+}
+
+
+.selected{
+  background: #eee;
+}

@@ -9,14 +9,17 @@ import { UserAccountJobSeekerComponent } from './user-account-job-seeker/user-ac
 import {SndStepAuthResolverService} from './snd-step-auth-resolver.service';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { LoadingModule} from 'ngx-loading';
 @NgModule({
   imports: [
-    CommonModule , authRouter , NgbModule , ReactiveFormsModule, FormsModule
+    CommonModule , authRouter , NgbModule ,
+    ReactiveFormsModule, FormsModule, LoadingModule
   ],
-  declarations: [LoginComponent, RegisterComponent, UserAccountComponent, UserAccountEmployerComponent, UserAccountJobSeekerComponent],
+  declarations: [
+    LoginComponent, RegisterComponent, UserAccountComponent,
+    UserAccountEmployerComponent, UserAccountJobSeekerComponent
+  ],
   providers: [SndStepAuthResolverService]
 
 })
 export class AuthModule { }
-

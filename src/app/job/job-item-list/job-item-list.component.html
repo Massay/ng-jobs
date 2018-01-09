@@ -1,3 +1,3 @@
 <ul class="list-group">
-    <app-job-item *ngFor="let job of jobs" (click)="pickFromList(job)" [job]="job" ></app-job-item>
+    <app-job-item *ngFor="let job of jobs" [class.selected]="currentJob === job"  (click)="pickFromList(job)" [job]="job" ></app-job-item>
 </ul>

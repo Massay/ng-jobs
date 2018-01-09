@@ -26,14 +26,15 @@ import {NoAuthGuard} from './shared/guards/no-auth.guard';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent
   ],
   imports: [
-    BrowserModule , NgbModule.forRoot() , HttpClientModule , SharedModule , JobModule , AuthModule, AppRoutingModule
+    BrowserModule , NgbModule.forRoot() , HttpClientModule ,
+    SharedModule ,
+    JobModule , AuthModule, AppRoutingModule
   ],
   providers: [ApiService, JwtService, CategoryService, UserService, AuthService,
     AuthGuard, NoAuthGuard, FormDataService],

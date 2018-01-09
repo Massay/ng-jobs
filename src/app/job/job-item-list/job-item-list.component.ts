@@ -9,11 +9,15 @@ import { Job } from '../../shared/models/job.model';
 export class JobItemListComponent implements OnInit {
 @Input() jobs: Job[];
 @Output() selectedJob = new EventEmitter<Job>();
-  constructor() { 
+currentJob: Job;
+  constructor() {
       this.selectedJob = new EventEmitter();
+
   }
 
   ngOnInit() {
+    if(this.jobs.length >  0)
+        this.currentJob = this.jobs[0];
   }
 
   selectJob(job: Job){
@@ -21,6 +25,7 @@ export class JobItemListComponent implements OnInit {
   }
 
   pickFromList(job: Job){
+    this.currentJob = job;
     this.selectedJob.emit(job);
   }
 
