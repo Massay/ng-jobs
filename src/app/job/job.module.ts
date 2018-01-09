@@ -9,13 +9,15 @@ import { JobCreateComponent } from './job-create/job-create.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobItemListComponent } from './job-item-list/job-item-list.component';
 import { JobMainComponent } from './job-main/job-main.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, jobRoutes
+    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule
   ],
-  declarations: [JobItemComponent, JobCardComponent, 
-    JobCardListComponent, JobCreateComponent, JobDetailsComponent, 
+  declarations: [JobItemComponent, JobCardComponent,
+    JobCardListComponent, JobCreateComponent, JobDetailsComponent,
     JobItemListComponent, JobMainComponent],
   exports : [JobCardListComponent, JobItemListComponent, JobMainComponent]
 })

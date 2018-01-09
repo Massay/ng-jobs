@@ -7,6 +7,7 @@ import { Job } from '../../shared/models/job.model';
   styleUrls: ['./job-details.component.css']
 })
 export class JobDetailsComponent implements OnInit {
+  currentRate = 5;
 @Input() job: Job;
   constructor() { }
 

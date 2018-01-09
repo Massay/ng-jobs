@@ -1,15 +1,22 @@
 <div class="col-md-12">
-  <img src="assets/img/pexels-photo-106399.jpeg" alt="image background" class="img-fluid" height="50%">
+  <img src="assets/img/ms.jpg" alt="image background" class="img-fluid" height="50%;width:100%">
   <div class="row  mt-3">
         <div class="col-md-7">
-              {{ job.summary}}
+               <b>{{ job.summary | uppercase}}</b>
         </div>
         <div class="col-md-5">
-            <button type="button" name="button" class="btn btn-primary btn-sm">Easy Apply</button>
-            <button type="button" name="button" class="btn btn-secondary btn-sm">Save</button>
+            <button type="button" name="button" class="btn btn-primary btn-sm">
+                  <i class="fa fa-simplybuilt" aria-hidden="true"></i>
+              Easy Apply</button>
+            <button type="button" name="button" class="btn btn-light border-primary btn-sm">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+              Save</button>
         </div>
   </div>
-  <button class="border-success btn btn-secondary my-2">4.4</button>  <strong>Istation - Dallas , TX</strong>
+  <button class="border-success btn btn-secondary my-2">
+      4.4
+  </button>
+  <strong>Istation - Dallas , TX</strong>
 
   <div class="row">
       <div class="col-md-12">
@@ -18,53 +25,52 @@
       </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-2">
         <div class="col-md-12">
-          <div id="accordion" role="tablist">
-            <div class="card">
-              <div class="card-header" role="tab" id="headingOne">
-                <h5 class="mb-0">
-                  <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                  </a>
-                </h5>
-              </div>
-
-              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" role="tab" id="headingTwo">
-                <h5 class="mb-0">
-                  <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
-                  </a>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" role="tab" id="headingThree">
-                <h5 class="mb-0">
-                  <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
-                  </a>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-          </div>
+  <ngb-tabset>
+        <ngb-tab >
+            <ng-template ngbTabTitle><b>Job</b></ng-template>
+                <ng-template ngbTabContent>
+                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+                  dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                  iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+              <ng-template ngbTabTitle><b>Company</b></ng-template>
+              <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+                craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+                cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+                yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+                shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+                sint qui sapiente accusamus tattooed echo park.</p>
+              </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <!-- [disabled]="true" -->
+            <ng-template ngbTabTitle><b>Rating</b></ng-template>
+              <ng-template ngbTabContent>
+                  <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <!-- [disabled]="true" -->
+            <ng-template ngbTabTitle><b>Reviews</b></ng-template>
+              <ng-template ngbTabContent>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <!-- [disabled]="true" -->
+            <ng-template ngbTabTitle><b>We Us?</b></ng-template>
+              <ng-template ngbTabContent>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+        </ngb-tab>
+</ngb-tabset>
         </div>
   </div>
 

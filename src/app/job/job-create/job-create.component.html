@@ -45,8 +45,17 @@
       </div>
       <div class="form-group">
         <label for="closing_date">Application Dead Line</label>
-        <input type="date" class="form-control" id="closing_date" placeholder="Closing Date for Application">
-        <small id="passwordHelpBlock" class="form-text text-muted">
+        <!-- <input type="date" class="form-control" id="closing_date" placeholder="Closing Date for Application"> -->
+              <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                          <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                        </button>
+                    </div>
+              </div>
+          <small id="passwordHelpBlock" class="form-text text-muted">
             Your password must be or emoji.
           </small>
       </div>
@@ -55,7 +64,7 @@
   </div>
   <div class="col-md-6">
       <h6 class="text-center">Job Description(s)</h6>
-      <button class="btn btn-primary btn-round float-md-right add-mg">+</button>
+      <button (click)="open(content)" class="btn btn-primary btn-round float-md-right add-mg">+</button>
       <ul class="list-group">
           <li class="bg-secondary list-group-item">Cras justo odio Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, voluptatem. <span class="bg-danger">x</span></li>
           <li class="bg-primary list-group-item">Dapibus ac facilisis in</li>
@@ -65,3 +74,21 @@
       </ul>
   </div>
 </div>
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Description</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     <textarea name="name" class="form-control" rows="8" cols="80" placeholder="Eg. Responsible for enrollment."></textarea>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
