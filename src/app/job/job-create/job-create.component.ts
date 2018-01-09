@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormGroup, Validator} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-job-create',
@@ -9,7 +9,17 @@ import {FormBuilder, FormGroup, Validator} from '@angular/forms';
 })
 export class JobCreateComponent implements OnInit {
   closeResult: string;
-  constructor(private modalService: NgbModal) { }
+  fg: FormGroup;
+  constructor(private modalService: NgbModal, private fb:FormBuilder) {
+      this.fg = this.fb.group({
+        'title':[null, Validators.required],
+        'summary': [null, Validators.required],
+        'type_id':[null, Validators.required],
+        'level_id':[null, Validators.required],
+        'price': [null, Validators.required],
+        'closing_date': [null, Validators.required]
+      });
+  }
 
   ngOnInit() {
   }
@@ -30,6 +40,9 @@ export class JobCreateComponent implements OnInit {
    } else {
      return  `with: ${reason}`;
    }
+ }
+ createJob(){
+   console.log('job creation details', this.fg.value);
  }
 
 }
