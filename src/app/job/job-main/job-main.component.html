@@ -14,12 +14,18 @@
 <div class="row mt-3 mb-3">
     <div class="col-md-2">
       <select class="form-control" name="">
-          <option value="">Job Type</option>
+          <option [ngValue]="null" [disabled]="true">Job Type</option>
+          <option *ngFor="let type of types" [ngValue]="type.id">{{ type.name }}</option>
       </select>
     </div>
     <div class="col-md-2">
       <select class="form-control" name="">
           <option value="">Date Posted</option>
+          <option value="">Today</option>
+          <option value="">Yesterday</option>
+          <option value="">Last Week</option>
+          <option value="">Last Month</option>
+          <option value="">Custom Date</option>
       </select>
     </div>
     <div class="col-md-2">

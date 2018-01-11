@@ -12,13 +12,14 @@ import { JobMainComponent } from './job-main/job-main.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
+import { MyJobsComponent } from './my-jobs/my-jobs.component';
 @NgModule({
   imports: [
     CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, LoadingModule
   ],
   declarations: [JobItemComponent, JobCardComponent,
     JobCardListComponent, JobCreateComponent, JobDetailsComponent,
-    JobItemListComponent, JobMainComponent],
+    JobItemListComponent, JobMainComponent, MyJobsComponent],
   exports : [JobCardListComponent, JobItemListComponent, JobMainComponent]
 })
 export class JobModule { }

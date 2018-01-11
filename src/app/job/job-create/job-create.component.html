@@ -23,7 +23,8 @@
         <div class="form-group col-md-6">
           <label for="inputEmail4">Job Type</label>
           <select name="" id="" formControlName="type_id" class="form-control">
-             <option [ngValue]="null" disabled>Choose type</option>
+            <option [ngValue]="null" disabled>Choose type</option>
+
             <option [ngValue]="type.id" *ngFor="let type of types">{{ type.name }}</option>
           </select>
             <small  *ngIf="!fg.controls['type_id'].valid && fg.controls['type_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
@@ -72,10 +73,6 @@
       <button (click)="open(content)" class="btn btn-primary btn-round float-md-right add-mg">+</button>
       <ul class="list-group">
           <li class="bg-secondary list-group-item">Cras justo odio Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, voluptatem. <span class="bg-danger">x</span></li>
-          <li class="bg-primary list-group-item">Dapibus ac facilisis in</li>
-          <li class="bg-info list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
       </ul>
   </div>
 </div>
