@@ -16,6 +16,7 @@ import {FormDataService} from './shared/services/form-data.service';
 import {SharedModule} from './shared/shared.module';
 import {AuthModule} from './auth/auth.module';
 import {JobModule} from './job/job.module';
+import {JobSeekersModule} from './job-seekers/job-seekers.module';
 import {AppRoutingModule} from './main.router';
 
 import { AppComponent } from './app.component';
@@ -32,7 +33,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     WelcomeComponent
   ],
   imports: [
-    BrowserModule , NgbModule.forRoot() , HttpClientModule ,
+    BrowserModule , NgbModule.forRoot() , HttpClientModule , JobSeekersModule,
     SharedModule ,
     JobModule , AuthModule, AppRoutingModule
   ],

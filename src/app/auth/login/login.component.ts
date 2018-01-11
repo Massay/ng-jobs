@@ -33,7 +33,11 @@ export class LoginComponent implements OnInit {
     console.log('credentails', this.fg.value);
     this.userService.attemptAuth(this.fg.value).subscribe(data => {
         this.loading = false;
-        this.router.navigateByUrl('jobs');
+        console.log('after authenticating the user', data);
+        if(data.data.user.userable_type.toLowerCase().includes('employer'))
+            this.router.navigateByUrl('job_seekers');
+        else
+            this.router.navigateByUrl('jobs');
     }, err => {
         this.loading = false;
         console.error('error attempting to login ', err);

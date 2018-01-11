@@ -11,7 +11,10 @@ import { SectionComponent } from './section/section.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingComponent } from './setting/setting.component';
-
+import {LevelService} from '../shared/services/level.service';
+import {TypeService} from '../shared/services/type.service';
+import {StatusService} from '../shared/services/status.service';
+import {JobService} from '../shared/services/job.service';
 
 
 const routes : Routes = [
@@ -31,9 +34,7 @@ const routes : Routes = [
   ],
   declarations: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardComponent,
     JobResumesIconCardListComponent, SectionComponent, FooterComponent, ProfileComponent, SettingComponent],
-  exports: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardListComponent, SectionComponent, FooterComponent]
+  exports: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardListComponent, SectionComponent, FooterComponent],
+  providers: [LevelService,TypeService,StatusService, JobService ]
 })
 export class SharedModule { }
-
-
-

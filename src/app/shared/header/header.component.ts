@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-
+import {User} from '../models/user.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 export class HeaderComponent implements OnInit {
 
   isEmployer: boolean;
+  user: User;
 
   constructor(
     private userService: UserService
@@ -16,8 +17,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
      this.userService.isEmployer.subscribe( data => {
-      console.log('header user ', data); 
+      console.log('header user ', data);
       this.isEmployer = data } );
+      this.userService.currentUser.subscribe ( data => this.user = data);
   }
 
   signout() {

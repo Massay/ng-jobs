@@ -11,10 +11,10 @@ import { JobItemListComponent } from './job-item-list/job-item-list.component';
 import { JobMainComponent } from './job-main/job-main.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { LoadingModule } from 'ngx-loading';
 @NgModule({
   imports: [
-    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule
+    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, LoadingModule
   ],
   declarations: [JobItemComponent, JobCardComponent,
     JobCardListComponent, JobCreateComponent, JobDetailsComponent,

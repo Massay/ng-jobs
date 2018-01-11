@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
-    <div class="col-md-10">
+    <div class="col-md-11">
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" routerLink="">
           <img src="assets/img/jj.PNG" alt="">
@@ -13,14 +13,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" *appShowAuthed="true">
 
           <ul class="navbar-nav mr-auto">
-            
-            <li class="nav-item active">
+
+            <li class="nav-item" routerLinkActive="active">
                <!-- <h4 *ngIf="isEmployer">Hello</h4> -->
-              <a class="nav-link" routerLink="jobs">Jobs
+              <a class="nav-link" routerLink="jobs">All Jobs
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item" routerLinkActive="active">
+               <!-- <h4 *ngIf="isEmployer">Hello</h4> -->
+              <a class="nav-link" routerLink="my_jobs">My Jobs
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+               <!-- <h4 *ngIf="isEmployer">Hello</h4> -->
+              <a class="nav-link" routerLink="job_seekers"  >Job Seekers
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown" routerLinkActive="active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Reports
@@ -32,7 +45,7 @@
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" routerLinkActive="active">
               <a class="nav-link" href="#">Messages</a>
             </li>
           </ul>
@@ -58,7 +71,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                {{user.name | uppercase }} <i class="fa fa-user-circle" aria-hidden="true"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" routerLink="setting">Settings</a>

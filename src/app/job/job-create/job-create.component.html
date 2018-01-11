@@ -23,18 +23,20 @@
         <div class="form-group col-md-6">
           <label for="inputEmail4">Job Type</label>
           <select name="" id="" formControlName="type_id" class="form-control">
-            <option value="">1</option>
+             <option [ngValue]="null" disabled>Choose type</option>
+            <option [ngValue]="type.id" *ngFor="let type of types">{{ type.name }}</option>
           </select>
-          <small  *ngIf="!fg.controls['type_id'].valid && fg.controls['type_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
-              job type is mandatory
+            <small  *ngIf="!fg.controls['type_id'].valid && fg.controls['type_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
+                job type is mandatory
             </small>
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Level Required</label>
-          <select   name="level_id" id="level_id" formControlName="level_id" class="form-control">
-            <option value="">1</option>
+          <select   name="level_id" id="level_id" formControlName="level_id" class="form-control"  placeholder="Level">
+             <option [ngValue]="null" disabled>Choose level</option>
+            <option [ngValue]="level.id" *ngFor="let level of levels">{{ level.name }}</option>
           </select>
-          <small  *ngIf="!fg.controls['level_id'].valid && fg.controls['level_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
+            <small  *ngIf="!fg.controls['level_id'].valid && fg.controls['level_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
               level of job is mandatory
             </small>
         </div>
@@ -51,14 +53,14 @@
         <!-- <input type="date" class="form-control" id="closing_date" placeholder="Closing Date for Application"> -->
               <div class="input-group">
                       <input class="form-control" placeholder="yyyy-mm-dd"
-                             name="dp" formControlName="closing_date" ngbDatepicker #d="ngbDatepicker">
+                             name="dp" formControlName="closing_date"  ngbDatepicker #d="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                           <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
                         </button>
                     </div>
               </div>
-          <small id="passwordHelpBlock" class="form-text text-danger">
+          <small *ngIf="!fg.controls['closing_date'].valid && fg.controls['closing_date'].touched" id="closing_date" class="form-text text-danger">
              Application dead-line is compulsory
           </small>
       </div>

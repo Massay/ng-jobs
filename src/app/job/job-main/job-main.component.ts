@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../../shared/models/job.model';
 import { Category } from '../../shared/models/category.model';
+import {JobService} from '../../shared/services/job.service';
 
 @Component({
   selector: 'app-job-main',
@@ -9,43 +10,22 @@ import { Category } from '../../shared/models/category.model';
 })
 export class JobMainComponent implements OnInit {
   currentSelectedJob: Job;
-   jobs: Job[] = [
-     {
-          title: 'This is a job',
-          closing_date: '7-01-2018',
-          id: 1,
-          status: null,
-          price: 8000,
-          categories: [],
-          created_at:'9-01-2018',
-          level: null,
-          level_id: 1,
-          status_id: 2,
-          summary: 'summary',
-          type: null,
-          type_id: 1
-     },
-     {
-          title: 'This is a job 2',
-          closing_date: '7-01-2018',
-          id: 2,
-          status: null,
-          price: 8000,
-          categories: [],
-          created_at:'9-01-2018',
-          level: null,
-          level_id: 1,
-          status_id: 2,
-          summary: 'summary 2',
-          type: null,
-          type_id: 1
- }
-   ];
-  constructor() { }
+   jobs: Job[];
+  constructor(private jobService: JobService) { }
 
   ngOnInit() {
-    if(this.jobs.length>1)
-        this.currentSelectedJob = this.jobs[0];
+
+      this.jobService.getAll().subscribe( data => {
+        this.jobs = data;
+        if(this.jobs.length > 0 ){
+                this.currentSelectedJob = this.jobs[0];
+        }
+      }, err => {
+
+      });
+
+
+
   }
 
   selectJob(job: Job){
