@@ -82,15 +82,68 @@
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">Add Description</h4>
+    <h4 class="modal-title">Job Description(s)</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-     <textarea name="name" class="form-control" rows="8" cols="80" placeholder="Eg. Responsible for enrollment."></textarea>
+    <div class="container">
+    <h4>Add customer</h4>
+    <button type="button" (click)="addAddress()" class="btn btn-primary" name="button">Add</button>
+      <label>Descriptions</label>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <!-- we will place our fields here -->
+
+      <!-- list of addresses -->
+      <div formArrayName="addresses">
+          <div *ngFor="let address of myForm.controls.addresses.controls; let i=index">
+              <!-- address header, show remove button when more than one address available -->
+              <div>
+                  <span>Address {{i + 1}}</span>
+                  <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)">
+                  </span>
+              </div>
+
+              <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+              <div [formGroupName]="i">
+                  <!--street-->
+                  <div>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="">
+                        <span class="input-group-btn">
+                          <button class="btn btn-danger" type="button">x</button>
+                        </span>
+                      </div>
+                      <!--display error message if street is not valid-->
+                      <!-- <small [hidden]="myForm.controls.addresses.controls[i].controls.street.valid">
+                          Street is required
+                      </small> -->
+                  </div>
+                  <!--postcode-->
+                  <!-- <div>
+                      <label>postcode</label>
+                      <input type="text" formControlName="postcode">
+                  </div> -->
+              <div>
+          </div>
+          </div>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="!myForm.valid">Save</button>
+  </form>
+</div>
+     <!-- <button type="button" class="btn btn-primary mb-2" (click)="add()" name="button">Add</button>
+     <div class="input-group">
+       <input type="text" class="form-control" placeholder="">
+       <span class="input-group-btn">
+         <button class="btn btn-secondary" type="button">x</button>
+          <button class="btn btn-secondary" type="button">+</button>
+       </span>
+     </div> -->
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" [disabled]="!fg.valid" (click)="c('Close click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" [disabled]="!fg.valid" (click)="c('Close click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" [disabled]="!fg.valid" (click)="c('Close click')">Cancel</button>
   </div>
 </ng-template>
