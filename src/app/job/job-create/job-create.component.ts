@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  OnChanges, SimpleChanges, SimpleChange,ChangeDetectionStrategy } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators,FormArray} from '@angular/forms';
 import {LevelService} from '../../shared/services/level.service';
@@ -17,58 +17,84 @@ import {JobService} from '../../shared/services/job.service';
 export class JobCreateComponent implements OnInit {
   closeResult: string;
   fg: FormGroup;
+  public loading = true;
   public myForm: FormGroup; // our form model
   statues: Status[];
   levels: Level[];
   types: Type[];
-
+  changelog: string[] = [];
+  list:[{
+     name: string
+  }];
   constructor(private modalService: NgbModal,private jobService: JobService, private _fb: FormBuilder,
     private fb:FormBuilder, private levelService: LevelService, private statusService: StatusService,
      private typeService: TypeService) {
-      this.fg = this.fb.group({
-        'title':[null, Validators.required],
-        'summary': [null, Validators.required],
-        'type_id':[null, Validators.required],
-        'level_id':[null, Validators.required],
-        'price': [null, Validators.compose([Validators.required, Validators.min(0),Validators.max(99999999999999)])],
-        'closing_date': [null, Validators.required]
-      });
-  }
+          this.fg = this.fb.group({
+            'title':[null, Validators.required],
+            'summary': [null, Validators.required],
+            'type_id':[null, Validators.required],
+            'level_id':[null, Validators.required],
+            'price': [null, Validators.compose([Validators.required, Validators.min(0),Validators.max(99999999999999)])],
+            'closing_date': [null, Validators.required]
+          });
+        this.myForm = this._fb.group({
+
+                addresses: this._fb.array([
+                    this.initDescription(),
+                ])
+            });
+    }
+
+
 
   ngOnInit() {
-     this.typeService.getAll().subscribe( data => this.types= data);
-     this.levelService.getAll().subscribe( data => this.levels = data);
-     this.statusService.getAll().subscribe( data => this.statues = data);
+          this.myForm.valueChanges.subscribe((form) => {
+          console.log('form changes ',form);
+          this.list = form.addresses;
+          });
+         this.typeService.getAll().subscribe( data => this.types= data);
+         this.levelService.getAll().subscribe( data => this.levels = data);
+         this.statusService.getAll().subscribe( data => this.statues = data);
 
      // we will initialize our form here
-   this.myForm = this._fb.group({
-
-           addresses: this._fb.array([
-               this.initAddress(),
-           ])
-       });
+     console.log('job Creation init');
 
   }
-  initAddress() {
+
+  ngOnChanges(changes: SimpleChanges) {
+       this.loading = false;
+       console.log('job create OnChanges');
+       console.log(JSON.stringify(changes));
+       for (const propName in changes) {
+            const change = changes[propName];
+            const to  = JSON.stringify(change.currentValue);
+            const from = JSON.stringify(change.previousValue);
+            const changeLog = `${propName}: changed from ${from} to ${to} `;
+            this.changelog.push(changeLog);
+       }
+   }
+  initDescription() {
         // initialize our address
         return this._fb.group({
-            street: ['', Validators.required],
-            postcode: ['']
+            name: ['', Validators.required],
         });
     }
 
-addAddress() {
+addDescription() {
     // add address to the list
     const control = <FormArray>this.myForm.controls['addresses'];
-    control.push(this.initAddress());
+    control.push(this.initDescription());
 }
 
-removeAddress(i: number) {
+removeDescription(i: number) {
     // remove address from the list
     const control = <FormArray>this.myForm.controls['addresses'];
     control.removeAt(i);
 }
-
+save(model: any) {
+       // call API to save customer
+       console.log('saved data',model.value);
+   }
 
   open(content) {
    this.modalService.open(content).result.then((result) => {
@@ -88,6 +114,8 @@ removeAddress(i: number) {
    }
  }
  createJob(){
+   console.log('list of Description', this.myForm.value);
+   console.log('list of Description is valid', this.myForm.valid);
    if(!this.fg.invalid){
        console.log('job creation is valid ', this.fg.value);
        this.jobService.create(this.fg.value).subscribe( data => {
