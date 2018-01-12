@@ -99,7 +99,6 @@
     <div class="container">
     <h4>Add customer</h4>
     <button type="button" (click)="addDescription()" class="btn btn-primary" name="button">Add</button>
-      <label>Descriptions</label>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
       <!-- we will place our fields here -->
 
@@ -108,7 +107,7 @@
           <div *ngFor="let address of myForm.controls.addresses.controls; let i=index">
               <!-- address header, show remove button when more than one address available -->
               <div>
-                  <span>Address {{i + 1}}</span>
+                  <span>Description {{i + 1}}</span>
                   <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeDescription(i)">
                   </span>
               </div>
@@ -138,7 +137,7 @@
           </div>
           </div>
       </div>
-      <button type="submit" class="btn btn-primary mt-2" [disabled]="!myForm.valid">Save</button>
+      <!-- <button type="submit" class="btn btn-primary mt-2" [disabled]="!myForm.valid">Save</button> -->
   </form>
 </div>
      <!-- <button type="button" class="btn btn-primary mb-2" (click)="add()" name="button">Add</button>
@@ -151,7 +150,7 @@
      </div> -->
   </div>
   <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Save</button>
-    <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Cancel</button>
+      <!-- <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Save</button>
+      <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Cancel</button> -->
   </div>
 </ng-template>
