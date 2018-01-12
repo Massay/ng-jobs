@@ -12,6 +12,7 @@ import { JobMainComponent } from './job-main/job-main.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
+// import { AlertModule } from 'ngx-bootstrap';
 import { MyJobsComponent } from './my-jobs/my-jobs.component';
 @NgModule({
   imports: [

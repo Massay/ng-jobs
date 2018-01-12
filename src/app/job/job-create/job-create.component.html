@@ -76,8 +76,9 @@
       <h6 class="text-center">Job Description(s)</h6>
       <button (click)="open(content)" class="btn btn-primary btn-round float-md-right add-mg">+</button>
       <ul class="list-group">
-          <li class="bg-secondary list-group-item" *ngFor="let des of list">
+          <li class="bg-primary list-group-item" *ngFor="let des of list,let index = i">
             {{ des.name}}
+            <span> <button type="button" (click)="removeDescription(i)" name="button">X</button> </span>
           </li>
       </ul>
 
@@ -119,7 +120,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control" formControlName="name" placeholder="New Description">
                         <span class="input-group-btn">
-                          <button class="btn btn-danger" (click)="removeAddress(i)" type="button">x</button>
+                          <button class="btn btn-danger" (click)="removeDescription(i)" type="button">x</button>
                         </span>
                       </div>
                       <!--display error message if street is not valid-->
