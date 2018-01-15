@@ -1,0 +1,35 @@
+
+<div class="row">
+    <div class="col-md-6 bg-info ">
+       <div class="row">
+          <div class="col-md-12">
+              <h4>Personal Information</h4>
+          </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+               <img src="assets/img/man-156584_640.png" alt="">
+            </div>
+            <span class="image-right ml-2"><a href="#">Upload Image</a></span>
+               
+         </div>
+         <div class="row">
+             <div class="col-md-12">
+                 <span> <b>Name:</b></span> {{ user.name | titlecase}}<br/>
+                 <span> <b>Email:</b></span> {{user.email}}<br/>
+             </div>
+         </div>
+         <div class="row">
+           <div class="col-md-12">
+                <span> <b>Skills:</b> </span>
+                <span *ngFor="let skill of user?.skills" class="badge badge-primary mr-1 ml-1">{{ skill.name }}</span>
+           </div>
+           <div class="col-md-12">
+                 <span> <b>Password:</b>  </span>  <a href="#">Change Password</a>
+           </div>
+         </div>
+         
+         
+    </div>
+</div>
+

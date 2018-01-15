@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         console.log('after authenticating the user', data);
         if(data.data.user.userable_type.toLowerCase().includes('employer'))
-            this.router.navigateByUrl('job_seekers');
+            this.router.navigateByUrl('jobs/job_seekers');
         else
             this.router.navigateByUrl('jobs');
     }, err => {

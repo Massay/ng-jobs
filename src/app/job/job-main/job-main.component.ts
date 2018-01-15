@@ -13,20 +13,20 @@ import {TypeService} from '../../shared/services/type.service';
 export class JobMainComponent implements OnInit {
   currentSelectedJob: Job;
    jobs: Job[];
-   types: Type;
-  constructor(private jobService: JobService, private typeService: TypeService) { }
+  constructor(private jobService: JobService) { }
 
   ngOnInit() {
 
       this.jobService.getAll().subscribe( data => {
         this.jobs = data;
+        console.log('jobs', this.jobs);
         if(this.jobs.length > 0 ){
                 this.currentSelectedJob = this.jobs[0];
         }
       }, err => {
 
       });
-      this.typeService.getAll().subscribe( data => this.types = data );
+      
 
 
 

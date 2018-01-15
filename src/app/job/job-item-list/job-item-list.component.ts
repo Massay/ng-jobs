@@ -13,12 +13,13 @@ currentJob: Job;
 public loading;
   changelog: string[] = [];
   constructor() {
-      this.selectedJob = new EventEmitter();
+      //this.selectedJob = new EventEmitter();
 
   }
 
   ngOnInit() {
       this.loading = true;
+     //  this.currentJob = this.jobs[0];
   }
 
   selectJob(job: Job){
@@ -33,6 +34,10 @@ public loading;
   ngOnChanges(changes: SimpleChanges) {
        this.loading = false;
        console.log('OnChanges');
+       if(this.jobs && this.jobs.length > 0 ){
+        this.currentJob = this.jobs[0];
+}
+       
        console.log(JSON.stringify(changes));
        for (const propName in changes) {
             const change = changes[propName];

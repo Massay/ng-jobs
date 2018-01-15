@@ -14,13 +14,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 // import { AlertModule } from 'ngx-bootstrap';
 import { MyJobsComponent } from './my-jobs/my-jobs.component';
+import { JobMasterComponent } from './job-master/job-master.component';
+import {JobSeekersModule} from '../job-seekers/job-seekers.module';
 @NgModule({
   imports: [
-    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, LoadingModule
+    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, LoadingModule, JobSeekersModule
   ],
   declarations: [JobItemComponent, JobCardComponent,
     JobCardListComponent, JobCreateComponent, JobDetailsComponent,
-    JobItemListComponent, JobMainComponent, MyJobsComponent],
+    JobItemListComponent, JobMainComponent, MyJobsComponent, JobMasterComponent],
   exports : [JobCardListComponent, JobItemListComponent, JobMainComponent]
 })
 export class JobModule { }

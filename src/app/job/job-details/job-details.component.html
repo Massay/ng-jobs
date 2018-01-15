@@ -9,10 +9,10 @@
                <b>{{ job?.title | uppercase}}</b>
         </div>
         <div class="col-md-5">
-            <button type="button" name="button" class="btn btn-primary btn-sm">
+            <button type="button" name="button" class="btn btn-primary btn-sm" (click)="apply(job?.id)">
                   <i class="fa fa-simplybuilt" aria-hidden="true"></i>
               Easy Apply</button>
-            <button type="button" name="button" class="btn btn-light border-primary btn-sm">
+            <button type="button" name="button" class="btn btn-light border-primary btn-sm" (click)="save()">
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
               Save</button>
         </div>
@@ -20,7 +20,7 @@
   <button class="border-success btn btn-secondary my-2">
       4.4
   </button>
-  <strong>Istation - Dallas , TX</strong>
+  <strong>{{ job?.user?.userable?.name}}</strong>
 
   <div class="row">
       <div class="col-md-12">
@@ -41,12 +41,47 @@
                 <p>
                     {{ job?.summary | uppercase}}
                 </p>
+                <div class="row">
+                  <h6>Description</h6>
+                  <ul>
+                    <li *ngFor="let des of job?.descriptions" >
+                       {{ des?.body }}
+                    </li>
+                  </ul>
+                </div>
+                <div class="row">
+                     <span>Type: </span>
+                     <p>{{  job?.type?.name }} </p>
+                </div>
+                <div class="row">
+                    <span>Closing Date: </span>
+                    <p>{{  job?.closing_date  }} </p>
+               </div>
+               <div class="row">
+                  <span>Created Date: </span>
+                  <p>{{  job?.created_at  }} </p>
+             </div>
+                <div class="row">
+                    <span>Status: </span>
+                    <p>{{  job?.status.name }} </p>
+               </div>
+               <div class="row">
+                  <span>Level: </span>
+                  <p>{{  job?.level.name }} </p>
+             </div>
+             <div class="row">
+                <span>Price: </span>
+                <p>{{  job?.price }} </p>
+           </div>
                 </ng-template>
         </ngb-tab>
         <ngb-tab>
               <ng-template ngbTabTitle><b>Company</b></ng-template>
               <ng-template ngbTabContent>
-
+                    <h3>{{ job?.user?.userable?.name }}</h3>
+                    <h6>email: {{ job?.user?.email }}</h6>
+                    <p>{{ job?.user?.userable?.about }}</p>
+                    <h6>Total Jobs Posted: {{ job?.user?.jobs?.length }}</h6>
               </ng-template>
         </ngb-tab>
         <ngb-tab>
@@ -66,9 +101,9 @@
         </ngb-tab>
         <ngb-tab>
           <!-- [disabled]="true" -->
-            <ng-template ngbTabTitle><b>We Us?</b></ng-template>
+            <ng-template ngbTabTitle><b>Why Us?</b></ng-template>
               <ng-template ngbTabContent>
-                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                <p>{{ job?.user?.userable?.why_us}}</p>
               </ng-template>
         </ngb-tab>
 </ngb-tabset>

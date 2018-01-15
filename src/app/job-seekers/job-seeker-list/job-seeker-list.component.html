@@ -1,0 +1,5 @@
+<ul class="list-group">
+        <app-job-seeker-item *ngFor="let user of users" [class.selectedItem]="user === selectedUser" [user]="user" (click)="selected(user)">
+
+            </app-job-seeker-item>
+</ul>

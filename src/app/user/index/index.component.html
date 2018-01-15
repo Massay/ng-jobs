@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item" routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i><a routerLink="profile"> My Info </a></li>
+            <li class="list-group-item"  routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i><a routerLink="subscriptions"> Subcriptions </a></li>
+            <li class="list-group-item"  routerLinkActive="active" ><i class="fa fa-user" aria-hidden="true"></i><a routerLink="security">Password & Security </a></li>
+            <li class="list-group-item"  routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i><a routerLink="notification-settings"> Notification Settings </a></li>
+            <li class="list-group-item"  routerLinkActive="active"><i class="fa fa-group" aria-hidden="true"></i><a routerLink="members-permission"> Members & Permissions </a></li>
+          </ul>
+    </div>
+    <div class="col-md-9">
+          <router-outlet></router-outlet>
+    </div>
+  </div>

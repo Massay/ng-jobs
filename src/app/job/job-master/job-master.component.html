@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-8">
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-md-3">
+         <select name="" class="form-control" id="">
+            <option [ngValue]="null" [disabled]="true">All Categories</option>
+             <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
+         </select>
+    </div>
+    <div class="col-md-1">
+        <button style="min-width:115px" class="btn border-primary btn-light">search</button>
+    </div>
+</div>
+<div class="row mt-3 mb-3">
+    <div class="col-md-2">
+      <select class="form-control" name="">
+          <option [ngValue]="null" [disabled]="true">Job Type</option>
+          <option *ngFor="let type of types" [ngValue]="type.id">{{ type.name }}</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-control" name="">
+          <option value="">Date Posted</option>
+          <option value="">Today</option>
+          <option value="">Yesterday</option>
+          <option value="">Last Week</option>
+          <option value="">Last Month</option>
+          <option value="">Custom Date</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-control" name="">
+          <option value="">Location</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-control" name="">
+          <option value="">Salary Range</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-control" name="">
+          <option value="">More</option>
+      </select>
+    </div>
+    <div class="col-md-1 mt-1">
+          <button type="button" class="btn btn-primary btn-sm" name="button">Create Job Alert</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

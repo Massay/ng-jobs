@@ -1,0 +1,10 @@
+.selectedItem{
+    background: blue !important;
+}
+
+.row{
+    cursor: pointer;
+  }
+  img{
+      margin:5px;
+  }

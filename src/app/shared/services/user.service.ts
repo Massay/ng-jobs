@@ -74,7 +74,7 @@ export class UserService {
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
-    if (user.userable_type!==undefined && user.userable_type.toLowerCase().includes('employer')) {
+    if (user !==undefined && user.userable_type !== undefined && user.userable_type.toLowerCase().includes('employer')) {
         this.isEmployerSubject.next(true);
         // console.log('em true');
     }else if  (user.userable_type!==undefined && user.userable_type.toLowerCase().includes('seeker')) {
@@ -118,6 +118,10 @@ export class UserService {
     .map(data => {
       return data;
     });
+  }
+
+  apply(data: Object){
+    return this.apiService.post('/apply',data);
   }
 
   searchEmail(terms: Observable<string>) {

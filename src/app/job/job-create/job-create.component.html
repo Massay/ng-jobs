@@ -4,24 +4,24 @@
 <div class="row mb-3">
 
   <div class="col-md-12">
-      <h2 class="text-center">Create a new Job</h2>
+    <h2 class="text-center">Create a new Job</h2>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <h6 class="text-center">Job Information</h6>
     <form [formGroup]="fg" (ngSubmit)="createJob()">
       <div class="form-group">
         <label for="inputAddress">Job Title</label>
         <input type="text" class="form-control" formControlName="title" id="title" placeholder="E.g Sales Manager">
-        <small id="passwordHelpBlock" class="form-text text-danger"  *ngIf="!fg.controls['title'].valid && fg.controls['title'].touched" >
-             job title is mandatory
-        </small>
+        <small id="passwordHelpBlock" class="form-text text-danger mt-1 mb-1" *ngIf="!fg.controls['title'].valid && fg.controls['title'].touched">
+            job title is mandatory
+          </small>
       </div>
       <div class="form-group">
         <label for="inputAddress">Job Summary</label>
         <textarea name="" class="form-control" formControlName="summary" id="" cols="30" rows="5"></textarea>
         <small *ngIf="!fg.controls['summary'].valid && fg.controls['summary'].touched" id="passwordHelpBlock" class="text-danger">
           summary is mandatory
-          </small>
+        </small>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -31,61 +31,86 @@
 
             <option [ngValue]="type.id" *ngFor="let type of types">{{ type.name }}</option>
           </select>
-            <small  *ngIf="!fg.controls['type_id'].valid && fg.controls['type_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
-                job type is mandatory
-            </small>
+          <small *ngIf="!fg.controls['type_id'].valid && fg.controls['type_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
+            job type is mandatory
+          </small>
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Level Required</label>
-          <select   name="level_id" id="level_id" formControlName="level_id" class="form-control"  placeholder="Level">
-             <option [ngValue]="null" disabled>Choose level</option>
+          <select name="level_id" id="level_id" formControlName="level_id" class="form-control" placeholder="Level">
+            <option [ngValue]="null" disabled>Choose level</option>
             <option [ngValue]="level.id" *ngFor="let level of levels">{{ level.name }}</option>
           </select>
-            <small  *ngIf="!fg.controls['level_id'].valid && fg.controls['level_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
-              level of job is mandatory
-            </small>
+          <small *ngIf="!fg.controls['level_id'].valid && fg.controls['level_id'].touched" id="passwordHelpBlock" class="form-text text-danger">
+            level of job is mandatory
+          </small>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-row my-4">
+        <select formControlName="categories" name="categories" id="categories" multiple class="form-control">
+            <option [ngValue]="null" [disabled]="true">Select Category(s)</option>
+            <option [ngValue]="category.id" *ngFor="let category of categories">
+                {{ category.name }}
+            </option>
+        </select>
+           <!-- <a (click)="open(addCat)">Add categories</a>
+           <div class="">
+                <span class="badge badge-secondary">Secondary <span>x</span> </span>
+                <span class="badge badge-secondary">Secondary  <span>x</span> </span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-secondary">Secondary</span>
+           </div> -->
+      </div>
+      <div class="form-row">
+      <div class="form-group col-6">
         <label for="inputAddress">Salary</label>
         <input type="text" formControlName="price" class="form-control" id="price" placeholder="Eg. 4000">
-        <small  *ngIf="!fg.controls['price'].valid && fg.controls['price'].touched" id="passwordHelpBlock" class="form-text text-danger ">
+        <small *ngIf="!fg.controls['price'].valid && fg.controls['price'].touched" id="passwordHelpBlock" class="form-text text-danger ">
           Price is mandatory
         </small>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         <label for="closing_date">Application Dead Line</label>
         <!-- <input type="date" class="form-control" id="closing_date" placeholder="Closing Date for Application"> -->
-              <div class="input-group">
-                      <input class="form-control" placeholder="yyyy-mm-dd"
-                             name="dp" formControlName="closing_date"  ngbDatepicker #d="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-                          <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-                        </button>
-                    </div>
-              </div>
-          <small *ngIf="!fg.controls['closing_date'].valid && fg.controls['closing_date'].touched" id="closing_date" class="form-text text-danger">
-             Application dead-line is compulsory
-          </small>
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="closing_date" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+            </button>
+          </div>
+        </div>
+        <small *ngIf="!fg.controls['closing_date'].valid && fg.controls['closing_date'].touched" id="closing_date" class="form-text text-danger">
+          Application dead-line is compulsory
+        </small>
       </div>
-      <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="fg.invalid || loading" >Post
+           <i *ngIf="loading" class="fa fa-cog fa-spin  fa-fw"></i>
+      </button>
     </form>
   </div>
-  <div class="col-md-6">
-      <h6 class="text-center">Job Description(s)</h6>
-      <button (click)="open(content)" class="btn btn-primary btn-round float-md-right add-mg">+</button>
-      <ul class="list-group">
-          <li class="bg-primary list-group-item" *ngFor="let des of list,let index = i">
-            {{ des.name}}
-            <span> <button type="button" (click)="removeDescription(i)" name="button">X</button> </span>
-          </li>
-      </ul>
+  <div class="col-md-5">
+    <h6 class="text-center">Job Description(s)</h6>
+    <button (click)="open(content)" class="btn btn-primary btn-round float-md-right add-mg">+</button>
+    <ul class="list-group">
+      <li class="bg-primary list-group-item" *ngFor="let des of list,let index = i">
+        {{ des.body}}
+        <span>
+          <button type="button" (click)="removeDescription(i)" name="button">
+              <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </span>
+      </li>
+    </ul>
 
   </div>
 </div>
-
-
 
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -97,60 +122,90 @@
   </div>
   <div class="modal-body">
     <div class="container">
-    <h4>Add customer</h4>
-    <button type="button" (click)="addDescription()" class="btn btn-primary" name="button">Add</button>
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-      <!-- we will place our fields here -->
-
-      <!-- list of addresses -->
-      <div formArrayName="addresses">
+      <h4>Add Description</h4>
+      <button type="button" (click)="addDescription()" class="btn btn-primary" name="button">Add</button>
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        <div formArrayName="addresses">
           <div *ngFor="let address of myForm.controls.addresses.controls; let i=index">
-              <!-- address header, show remove button when more than one address available -->
-              <div>
-                  <span>Description {{i + 1}}</span>
-                  <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeDescription(i)">
-                  </span>
-              </div>
+            <div>
+              <span>Description {{i + 1}}</span>
+              <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeDescription(i)">
+              </span>
+            </div>
+            <div [formGroupName]="i">
 
-              <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
-              <div [formGroupName]="i">
-                  <!--street-->
-                  <div>
-                      <div class="input-group">
-                        <input type="text" class="form-control" formControlName="name" placeholder="New Description">
-                        <span class="input-group-btn">
-                          <button class="btn btn-danger" (click)="removeDescription(i)" type="button">x</button>
-                        </span>
-                      </div>
-                      <!--display error message if street is not valid-->
-                      <!-- <small [hidden]="myForm.controls.addresses.controls[i].controls.street.valid">
-                          Street is required
-                      </small> -->
-                  </div>
-                  <!--postcode-->
-                  <!-- <div>
-                      <label>postcode</label>
-                      <input type="text" formControlName="postcode">
-                  </div> -->
               <div>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="body" placeholder="New Description">
+                  <span class="input-group-btn">
+                    <button class="btn btn-danger" (click)="removeDescription(i)" type="button">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div>
+              </div>
+            </div>
           </div>
-          </div>
-          </div>
-      </div>
-      <!-- <button type="submit" class="btn btn-primary mt-2" [disabled]="!myForm.valid">Save</button> -->
-  </form>
-</div>
-     <!-- <button type="button" class="btn btn-primary mb-2" (click)="add()" name="button">Add</button>
-     <div class="input-group">
-       <input type="text" class="form-control" placeholder="">
-       <span class="input-group-btn">
-         <button class="btn btn-secondary" type="button">x</button>
-          <button class="btn btn-secondary" type="button">+</button>
-       </span>
-     </div> -->
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="modal-footer">
-      <!-- <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Save</button>
-      <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.valid" (click)="c('Close click')">Cancel</button> -->
+</ng-template>
+
+
+
+<ng-template #addCat let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Job Categories</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <h4>Add Category</h4>
+      <button type="button" (click)="addDescription()" class="my-2 btn btn-primary" name="button">Add</button>
+      <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        <div formArrayName="addresses">
+          <div *ngFor="let address of myForm.controls.addresses.controls; let i=index">
+            <div>
+              <span>Description {{i + 1}}</span>
+              <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeDescription(i)">
+              </span>
+            </div>
+            <div [formGroupName]="i">
+
+              <div>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="body" placeholder="New Description">
+                  <span class="input-group-btn">
+                    <button class="btn btn-danger" (click)="removeDescription(i)" type="button">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form> -->
+      <form action="">
+            <div class="form-row">
+                  <div class="form-group col-12">
+                        <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
+                        
+                  </div>
+            </div>
+      </form>
+      <div>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-secondary">Secondary</span>
+      </div>
+    </div>
   </div>
 </ng-template>

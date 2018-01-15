@@ -19,10 +19,8 @@
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
                   </span>
                   <select formControlName="address" class="form-control" required>
-                      <option value="">Open this select menu</option>
-                      <option value="1">Serrekunda</option>
-                      <option value="2">Banjul</option>
-                      <option value="3">Bakau</option>
+                      <option [ngValue]="null" [disabled]="true">Select Your Location</option>
+                      <option *ngFor="let address of addresses" value="1">{{ address.name }}</option>
                     </select>
                 </div>
               </div>
@@ -80,8 +78,12 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-success mt-4"  type="submit">Next</button>
+              <button class="btn btn-success mt-4" [disabled]="loading"  type="submit">
+                Next
+                <i *ngIf="loading" class="fa fa-cog fa-spin  fa-fw"></i>
+              </button>
             </div>
+            <h2 *ngIf="notify">{{ message }}</h2>
           </form>
         </div>
       </div>

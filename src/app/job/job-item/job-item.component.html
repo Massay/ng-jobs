@@ -1,26 +1,28 @@
 <div class="row">
-  <!-- <small>{{ job.title }}</small>
-  <p>{{ job.summary }}</p>
-  <button (click)="Jobselect(job)" class="btn btn-primary">Details
-
-  </button> -->
   <div class="col-md-2">
-        <img width="52" src="assets/img/gnpc.jpg" alt="image">
+        <img width="52" src="assets/img/insist.jpg" alt="image">
   </div>
   <div class="col-md-10">
      <div class="row">
        <div class="col-md-12">
            <div class="row">
-                <div class="col-md-10">
-                           <h5> <a>{{ job.title }}</a> </h5>
+                <div class="col-md-7">
+                           <h6> <a>{{ job.title }}</a> </h6>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-5">
+                        <button class="btn btn-sm text-primary">{{ job?.type?.name}}</button>
                         <i class="fa fa-heart-o text-success" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <span *ngIf="job?.categories.length === 0" class="badge badge-secondary ml-2 mr-2 mt-2 mb-2">{{ 'uncategories' }}</span>
+                        <span *ngFor="let cat of job?.categories" class="badge badge-primary ml-2 mr-2 mt-2 mb-2">{{ cat.name }}</span>
                 </div>
            </div>
            <div class="row">
                 <div class="col-md-8">
-                           <h6><small>Brikama</small></h6>
+                           <h6>  <i class="fa fa-heart-o text-success" aria-hidden="true"></i> <small>Brikama</small></h6>
+                           <h6>  <i class="fa fa-money text-success" aria-hidden="true"></i> <b> {{ job.price | currency: 'GMD' }}</b></h6>
+                           <h6>  <i class="fa fa-map text-success" aria-hidden="true"></i> <small> Serrekunda</small></h6>
                 </div>
                 <div class="col-md-4">
                      <small> 3 days ago</small>

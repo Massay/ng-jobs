@@ -1,0 +1,16 @@
+.list-group-item{
+    border: none !important;
+}
+
+.active a{
+    color: #fff !important;
+}
+
+li{
+    list-style: none !important;
+
+}
+li a{
+    list-style: none;
+    text-decoration: none;
+}
