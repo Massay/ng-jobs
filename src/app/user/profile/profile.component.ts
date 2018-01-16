@@ -8,6 +8,7 @@ import {User} from '../../shared/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   user: User;
+  fileData: FileHolder;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -30,6 +31,11 @@ export class ProfileComponent implements OnInit {
 
   onUploadFinished(file){
     console.log('done',file);
+    this.fileData = file;
+  }
+
+  uploadImg(){
+      this.userService.uploadImage(this.fileData).subscribe(data => console.log('upload..', data));
   }
 
 }
