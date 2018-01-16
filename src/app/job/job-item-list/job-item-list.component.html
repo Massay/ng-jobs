@@ -2,7 +2,22 @@
     secondaryColour: '#000',
     tertiaryColour: '#000'  }"></ngx-loading>
 <ul class="list-group">
-    <app-job-item *ngFor="let job of jobs" [class.selected]="currentJob === job"  (click)="pickFromList(job)" [job]="job" >
-        
+    <app-job-item *ngFor="let job of jobs | paginate: { itemsPerPage: 3, currentPage: p } " [class.selected]="currentJob === job"  (click)="pickFromList(job)" [job]="job" >
+
     </app-job-item>
+    <!-- <pagination
+                [directionLinks]="false"
+                [totalItems]="totalItems"
+                [(ngModel)]="currentPage"
+                (numPages)="smallnumPages = $event">
+      </pagination>
+      <pager
+                [totalItems]="totalItems"
+                [(ngModel)]="currentPage"
+                (pageChanged)="pageChanged($event)"
+                pageBtnClass="btn"
+                [itemsPerPage]="10"
+                class="pull-left">
+    </pager> -->
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </ul>

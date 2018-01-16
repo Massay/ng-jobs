@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter ,OnChanges, SimpleChanges, SimpleChange,ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter ,
+  ViewEncapsulation ,OnChanges, SimpleChanges, SimpleChange,ChangeDetectionStrategy} from '@angular/core';
 import { Job } from '../../shared/models/job.model';
 
 @Component({
@@ -12,13 +13,24 @@ export class JobItemListComponent implements OnInit {
 currentJob: Job;
 public loading;
   changelog: string[] = [];
+  p: number = 1;
   constructor() {
       //this.selectedJob = new EventEmitter();
 
   }
 
+  totalItems: number = 64;
+  currentPage: number = 4;
+  smallnumPages: number = 0;
+ 
+  pageChanged(event: any): void {
+    console.log('Page changed to: ' + event.page);
+    console.log('Number items per page: ' + event.itemsPerPage);
+  }
+
   ngOnInit() {
       this.loading = true;
+
      //  this.currentJob = this.jobs[0];
   }
 

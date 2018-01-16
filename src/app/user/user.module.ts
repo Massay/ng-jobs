@@ -8,7 +8,7 @@ import { MemberPermissionComponent } from './member-permission/member-permission
 import {RouterModule, Routes} from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { IndexComponent } from './index/index.component';
-
+import { ImageUploadModule } from "angular2-image-upload"
 
 const routes: Routes = [
   {
@@ -48,7 +48,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, RouterModule.forChild(routes), ImageUploadModule.forRoot(),
   ],
   declarations: [ProfileComponent, SubscriptionComponent, PasswordComponent, NotificationSettingComponent, MemberPermissionComponent, IndexComponent]
 })

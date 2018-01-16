@@ -16,9 +16,14 @@ import { LoadingModule } from 'ngx-loading';
 import { MyJobsComponent } from './my-jobs/my-jobs.component';
 import { JobMasterComponent } from './job-master/job-master.component';
 import {JobSeekersModule} from '../job-seekers/job-seekers.module';
+
+import { PaginationModule } from 'ngx-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 @NgModule({
   imports: [
-    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, LoadingModule, JobSeekersModule
+    CommonModule, jobRoutes, NgbModule, FormsModule, ReactiveFormsModule, 
+    LoadingModule, JobSeekersModule, PaginationModule.forRoot(), NgxPaginationModule
   ],
   declarations: [JobItemComponent, JobCardComponent,
     JobCardListComponent, JobCreateComponent, JobDetailsComponent,

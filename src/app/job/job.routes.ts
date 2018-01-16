@@ -13,11 +13,6 @@ export const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [
       {
-        path : '',
-        redirectTo: 'feed',
-        pathMatch: 'full'
-      },
-      {
         path: 'feed',
         component: JobMainComponent
       },
@@ -28,6 +23,11 @@ export const routes: Routes = [
         {
           path: 'create',
           component: JobCreateComponent
+        },
+        {
+          path : '',
+          redirectTo: 'feed',
+          pathMatch: 'full'
         }
     ]
   },

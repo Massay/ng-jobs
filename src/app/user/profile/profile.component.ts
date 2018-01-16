@@ -15,4 +15,21 @@ export class ProfileComponent implements OnInit {
        this.userService.currentUser.subscribe( data => this.user = data  );
   }
 
+  imageFinishedUploading(file) {
+    console.log('image_finished_upload', file);
+  }
+  
+  onRemoved(file) {
+    console.log('removed ',file);
+    // do some stuff with the removed file.
+  }
+  
+  onUploadStateChanged(state: boolean) {
+    console.log(JSON.stringify(state));
+  }
+
+  onUploadFinished(file){
+    console.log('done',file);
+  }
+
 }
