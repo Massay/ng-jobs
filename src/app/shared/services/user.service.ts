@@ -95,6 +95,10 @@ export class UserService {
     this.router.navigateByUrl('login');
   }
 
+  uploadImage(data: Object){
+    return this.apiService.post('/uploadImage',data);
+  }
+
 
   attemptAuth(credentials): Observable<LoginResultFormat> {
     return this.apiService.post('/login', credentials)
