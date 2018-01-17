@@ -30,9 +30,10 @@
       </select>
     </div>
     <div class="col-md-2">
-      <select class="form-control" name="">
-          <option value="">Location</option>
-      </select>
+            <select class="form-control" name="">
+                    <option [ngValue]="null" [disabled]="true">Location</option>
+                    <option *ngFor="let add of address" [ngValue]="add.id">{{ add.name }}</option>
+            </select>
     </div>
     <div class="col-md-3">
       <select class="form-control" name="">

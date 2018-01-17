@@ -15,6 +15,7 @@ import {LevelService} from '../shared/services/level.service';
 import {TypeService} from '../shared/services/type.service';
 import {StatusService} from '../shared/services/status.service';
 import {JobService} from '../shared/services/job.service';
+import {AddressService} from '../shared/services/address.service';
 
 
 const routes : Routes = [
@@ -35,6 +36,6 @@ const routes : Routes = [
   declarations: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardComponent,
     JobResumesIconCardListComponent, SectionComponent, FooterComponent, ProfileComponent, SettingComponent],
   exports: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardListComponent, SectionComponent, FooterComponent],
-  providers: [LevelService,TypeService,StatusService, JobService ]
+  providers: [LevelService,TypeService,StatusService, JobService,AddressService ]
 })
 export class SharedModule { }

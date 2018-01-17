@@ -5,6 +5,7 @@ import { Category } from '../../shared/models/category.model';
 import {JobService} from '../../shared/services/job.service';
 import {TypeService} from '../../shared/services/type.service';
 import {CategoryService} from '../../shared/services/category.service';
+import {AddressService} from '../../shared/services/address.service';
 @Component({
   selector: 'app-job-master',
   templateUrl: './job-master.component.html',
@@ -14,7 +15,8 @@ export class JobMasterComponent implements OnInit {
   jobs: Job[];
   types: Type;
   categories: Category;
-  constructor(private jobService: JobService, private typeService: TypeService, 
+  address: any;
+  constructor(private addressService:AddressService, private jobService: JobService, private typeService: TypeService, 
     private categoryService: CategoryService) { }
 
   ngOnInit() {
@@ -22,7 +24,8 @@ export class JobMasterComponent implements OnInit {
     this.categoryService.getAll().subscribe( data => {
         console.log('list of categories ', data);
         this.categories = data;
-    })
+    });
+    this.addressService.getAll().subscribe( data => this.address = data );
   }
 
 }

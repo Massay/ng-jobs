@@ -1,9 +1,12 @@
 
 <div class="row">
+     <div class="col-md-12">
+          <h5>Perosonal Information</h5>
+     </div>
     <div class="col-md-6 bg-light ">
        <div class="row">
           <div class="col-md-12">
-              <h4>Personal Information</h4>
+              <img  [src]=" 'http://localhost:8000/storage/'+user?.avatar" alt="">
           </div>
        </div>
         <div class="row">
@@ -14,28 +17,41 @@
                     (uploadStateChanged)="onUploadStateChanged($event)"
                     ></image-upload>
                <!-- <img src="assets/img/man-156584_640.png" alt=""> -->
-               <button class="btn btn-primary" (click)="uploadImg()">Upload</button>
-            </div>
-            <span class="image-right ml-2"><a href="#">Upload Image</a></span>
-               
+               <button class="btn btn-primary my-2 btn-sm" (click)="uploadImg()">Upload</button>
+            </div>               
          </div>
-         <div class="row">
+    </div>
+    <div class="col-md-6">
+        <div class="row">
              <div class="col-md-12">
-                 <span> <b>Name:</b></span> {{ user.name | titlecase}}<br/>
-                 <span> <b>Email:</b></span> {{user.email}}<br/>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <span> <b>Name:</b></span> {{ user.name | titlecase}}<br/>
+                                <span> <b>Email:</b></span> {{user.email}}<br/>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                               <span> <b>Skills:</b> </span>
+                               <span *ngFor="let skill of user?.skills" class="badge badge-primary mr-1 ml-1">{{ skill.name }}</span>
+                          </div>
+                          <!-- <div class="col-md-12">
+                                <span> <b>Password:</b>  </span>  <a href="#">Change Password</a>
+                          </div> -->
+                        </div>
+                    <!-- <img  [src]=" 'http://localhost:8000/storage/'+user?.avatar" alt=""> -->
              </div>
-         </div>
-         <div class="row">
-           <div class="col-md-12">
-                <span> <b>Skills:</b> </span>
-                <span *ngFor="let skill of user?.skills" class="badge badge-primary mr-1 ml-1">{{ skill.name }}</span>
-           </div>
-           <div class="col-md-12">
-                 <span> <b>Password:</b>  </span>  <a href="#">Change Password</a>
-           </div>
-         </div>
-         
-         
+        </div>
+    </div>
+    <div class="col-md-12">
+            <h5>More Information</h5>
+       </div>
+    <div class="col-md-6">
+          <div class="row">
+                <div class="col-md-12">
+                       
+                </div>
+          </div>
     </div>
 </div>
 
