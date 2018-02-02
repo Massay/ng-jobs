@@ -14,7 +14,10 @@ import { EducationItemComponent } from './education-item/education-item.componen
 import { EducationListComponent } from './education-list/education-list.component';
 import { ExperienceListComponent } from './experience-list/experience-list.component';
 import { ExperienceItemComponent } from './experience-item/experience-item.component'
-
+import { ModalModule } from 'ngx-bootstrap';
+import { TagInputModule } from 'ngx-chips';
+import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 const routes: Routes = [
   {
     path:'user',
@@ -53,7 +56,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forChild(routes), ImageUploadModule.forRoot(),
+    CommonModule, RouterModule.forChild(routes), ImageUploadModule.forRoot(),ModalModule.forRoot(),
+    FormsModule,
+    TagInputModule, BrowserAnimationsModule
   ],
   declarations: [ProfileComponent, SubscriptionComponent, PasswordComponent, NotificationSettingComponent, MemberPermissionComponent, IndexComponent, EductionItemComponent, EducationItemComponent, EducationListComponent, ExperienceListComponent, ExperienceItemComponent]
 })
