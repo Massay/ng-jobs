@@ -6,12 +6,14 @@
 
         <div class="col-md-4">
           <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px',  backdropBackgroundColour: '#fff',primaryColour: 'red', secondaryColour: 'blue', tertiaryColour: 'green'  }"></ngx-loading>
-
+        
+           <div *ngIf="error" class="">
+              {{ message?.message }}
+           </div>
           <div class="card">
                 <div class="card-header">
                   Login
                 </div>
-
                 <div class="card-body">
                             <form [formGroup]="fg" (ngSubmit)="login()" >
                                 <div class="form-group">
@@ -26,7 +28,7 @@
                                     <input formControlName="password" class="form-control" type="password" placeholder="Password">
                                   </div>
                                 </div>
-                                <button type="submit" class=" btn btn-success">Log in</button>
+                                <button type="submit"  [disabled]="fg.invalid" class=" btn btn-success">Log in</button>
                               </form>
                 </div>
               </div>

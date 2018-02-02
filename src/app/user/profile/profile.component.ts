@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment';
 })
 export class ProfileComponent implements OnInit {
   user: User;
-  fileData: FileHolder;
+  fileData: any;
 
   private setHeaders(): HttpHeaders {
     const headersConfig = {
@@ -26,23 +26,23 @@ export class ProfileComponent implements OnInit {
     return new HttpHeaders(headersConfig);
   }
 
-  constructor(private userService: UserService, private http: HttpClient, 
+  constructor(private userService: UserService, private http: HttpClient,
     private jwtService: JwtService) { }
 
   ngOnInit() {
-       
+
        this.userService.currentUser.subscribe( data => this.user = data  );
   }
 
   imageFinishedUploading(file) {
     console.log('image_finished_upload', file);
   }
-  
+
   onRemoved(file) {
     console.log('removed ',file);
     // do some stuff with the removed file.
   }
-  
+
   onUploadStateChanged(state: boolean) {
     console.log(JSON.stringify(state));
   }
@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
 
   uploadImg(){
       const formData = new FormData();
-      
+
       formData.append('avatar',this.fileData);
       this.http.post( `${environment.app_url}${'/uploadImage'}`,formData,{
         headers: this.setHeaders()

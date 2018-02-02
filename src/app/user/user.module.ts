@@ -8,7 +8,12 @@ import { MemberPermissionComponent } from './member-permission/member-permission
 import {RouterModule, Routes} from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { IndexComponent } from './index/index.component';
-import { ImageUploadModule } from "angular2-image-upload"
+import { ImageUploadModule } from "angular2-image-upload";
+import { EductionItemComponent } from './eduction-item/eduction-item.component';
+import { EducationItemComponent } from './education-item/education-item.component';
+import { EducationListComponent } from './education-list/education-list.component';
+import { ExperienceListComponent } from './experience-list/experience-list.component';
+import { ExperienceItemComponent } from './experience-item/experience-item.component'
 
 const routes: Routes = [
   {
@@ -40,7 +45,7 @@ const routes: Routes = [
            redirectTo: 'profile',
            pathMatch: 'full'
          }
-        
+
     ]
 
   }
@@ -50,6 +55,6 @@ const routes: Routes = [
   imports: [
     CommonModule, RouterModule.forChild(routes), ImageUploadModule.forRoot(),
   ],
-  declarations: [ProfileComponent, SubscriptionComponent, PasswordComponent, NotificationSettingComponent, MemberPermissionComponent, IndexComponent]
+  declarations: [ProfileComponent, SubscriptionComponent, PasswordComponent, NotificationSettingComponent, MemberPermissionComponent, IndexComponent, EductionItemComponent, EducationItemComponent, EducationListComponent, ExperienceListComponent, ExperienceItemComponent]
 })
 export class UserModule { }

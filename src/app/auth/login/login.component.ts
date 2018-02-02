@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public loading = false;
+  public error = false;
+  public message: string;
   fg: FormGroup;
   constructor(
     private userService: UserService,
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.message;
     // this.userService.attemptAuth
     this.fg = this.fb.group({
         'email': [null, Validators.compose([Validators.required, Validators.email])],
@@ -33,6 +36,7 @@ export class LoginComponent implements OnInit {
     console.log('credentails', this.fg.value);
     this.userService.attemptAuth(this.fg.value).subscribe(data => {
         this.loading = false;
+        this.error = false;
         console.log('after authenticating the user', data);
         if(data.data.user.userable_type.toLowerCase().includes('employer'))
             this.router.navigateByUrl('jobs/job_seekers');
@@ -40,6 +44,8 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('jobs');
     }, err => {
         this.loading = false;
+        this.error = true;
+        this.message = err.error;
         console.error('error attempting to login ', err);
     });
   }
