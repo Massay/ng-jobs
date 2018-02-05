@@ -15,6 +15,10 @@ export class JobService {
   constructor(private apiService: ApiService, private jwtService: JwtService) {
    }
 
+   setCurrent(data){
+      this.currentJobsSubject.next(data);
+   }
+
    getAll(){
       return this.apiService.get('/jobs');
    }

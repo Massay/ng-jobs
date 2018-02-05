@@ -15,6 +15,8 @@ import {LevelService} from '../shared/services/level.service';
 import {TypeService} from '../shared/services/type.service';
 import {StatusService} from '../shared/services/status.service';
 import {JobService} from '../shared/services/job.service';
+import {EducationService} from '../shared/services/education.service';
+import {ExperienceService} from '../shared/services/experience.service';
 import {AddressService} from '../shared/services/address.service';
 
 
@@ -36,6 +38,7 @@ const routes : Routes = [
   declarations: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardComponent,
     JobResumesIconCardListComponent, SectionComponent, FooterComponent, ProfileComponent, SettingComponent],
   exports: [HeaderComponent, ShowAuthedDirective, JobResumesIconCardListComponent, SectionComponent, FooterComponent],
-  providers: [LevelService,TypeService,StatusService, JobService,AddressService ]
+  providers: [LevelService,TypeService,StatusService, JobService,AddressService, EducationService, ExperienceService
+   ]
 })
 export class SharedModule { }

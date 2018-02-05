@@ -26,7 +26,7 @@ export class JobMainComponent implements OnInit {
       }, err => {
 
       });
-      
+
 
 
 

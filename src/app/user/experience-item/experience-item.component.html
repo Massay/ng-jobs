@@ -1,3 +1,43 @@
-<p>
-  experience-item works!
-</p>
+<form [formGroup]="fg" (ngSubmit)="addExperience()">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Company</label>
+        <input type="text" class="form-control"  formControlName="name" id="exampleInputPassword1" placeholder="Company">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Title</label>
+        <input type="text" class="form-control" formControlName="title" id="exampleInputPassword1" placeholder="Job Title">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">From</label>
+        <select class="form-control" name="" formControlName="from_month">
+          <option [ngValue]="null">Select  Month</option>
+            <option [value]="month.id" *ngFor="let month of months">{{ month.name }}</option>
+        </select>
+        <select class="form-control" name="" formControlName="from_year">
+                  <option [ngValue]="null">Select  Year</option>
+              <option [value]="year" *ngFor="let year of years">{{ year }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">To</label>
+        <select class="form-control" name="" formControlName="to_month">
+          <option [ngValue]="null">Select  Month</option>
+            <option [value]="month.id" *ngFor="let month of months">{{ month.name }}</option>
+        </select>
+        <select class="form-control" name="" formControlName="to_year">
+                <option [ngValue]="null">Select  Year</option>
+              <option [value]="year" *ngFor="let year of years">{{ year }}</option>
+        </select>
+
+      </div>
+      <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+            <label class="form-check-label">
+              <input class="form-check-input" formControlName="current" type="checkbox"> current
+            </label>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>

@@ -40,6 +40,12 @@ export class ProfileComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+
+
+  // openExModal(template: TemplateRef<any>) {
+  //   this.modalRef = this.modalService.show(template);
+  // }
+
   imageFinishedUploading(file) {
     console.log('image_finished_upload', file);
   }

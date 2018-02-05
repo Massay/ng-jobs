@@ -7,11 +7,17 @@
                  </div>
             </div>
             <div class="col-md-6">
-                <div class="row bg-primary" style="height:200px">
 
-                </div>
-                <div class="row bg-secondary" style="height:500px">
-
+                <div class="row bg-secondary">
+                  <div class="col-md-12">
+                    <p *ngFor="let j of user.jobs">
+                          <a href="#">{{ j.title }}</a>
+                          <li> {{ j.summary }} </li>
+                          <li> {{ j.price }} </li>
+                          <li> {{j.status.name }} </li>
+                          <li> {{j.type.name }} </li>
+                    </p>
+                  </div>
                 </div>
             </div>
             <div class="col-md-3">

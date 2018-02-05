@@ -49,7 +49,7 @@
     <div class="col-md-6">
           <div class="row">
                 <div class="col-md-12">
-                       <h3>Lits of Eduction for Me
+                       <h3>List of Education for Me
                           <button type="button" name="button"
                           (click)="openModal(template)"
                            class="btn btn-primary">+</button>
@@ -61,12 +61,26 @@
                        </div>
                 </div>
                 <div class="col-md-12">
-                       <h3>Lits of Experences for Me
-                          <button type="button" name="button" class="btn btn-primary">+</button>
+                       <h3>List of Experences for Me
+                          <button type="button" name="button"
+                              (click)="openModal(experienceTemplate)"
+                           class="btn btn-primary">+</button>
                        </h3>
                        <div class="row">
                             <div class="col-md-12">
                                     <app-experience-list></app-experience-list>
+                            </div>
+                       </div>
+                </div>
+                <div class="col-md-12">
+                       <h3>List of Skills
+                          <!-- <button type="button" name="button"
+                              (click)="openModal(skillsTemplate)"
+                           class="btn btn-primary">+</button> -->
+                       </h3>
+                       <div class="row">
+                            <div class="col-md-12">
+                                    <app-skills></app-skills>
                             </div>
                        </div>
                 </div>
@@ -76,12 +90,38 @@
 
 <ng-template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+    <h4 class="modal-title pull-left">Add Eduction</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+     <app-education-item></app-education-item>
+  </div>
+</ng-template>
+<!-- <ng-template #skillsTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Skills</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+              <app-skills></app-skills>
+      </div>
+
+  </div>
+</ng-template> -->
+
+<ng-template #experienceTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Experience</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     <app-experience-item></app-experience-item>
   </div>
 </ng-template>

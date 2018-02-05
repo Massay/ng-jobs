@@ -26,51 +26,53 @@
         <div class="col-md-12">
           <h4>WORK EXPERIENCE</h4>
           <div class="row">
-            <div class="col-md-12">
-              Web Designer -- volo senegal 2001-2009 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
+            <div class="col-md-12" *ngIf="user?.experiences.length === 0">
+                  <p>No Work Experience Found</p><br/>
+            </div>
+            <div class="col-md-12" *ngFor="let ex of user?.experiences">
+                <p>{{ ex.name }}</p>
+                <p>{{ ex.title }}</p>
+                <p>{{ ex.start_date  | date:'MMMM , y'}}</p>
+                <p> {{ ex.end_date | date:'MMMM , y' }} </p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              Projct Manager -- volo senegal 2001-2009 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              CEO Founder -- volo senegal 2001-2009 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
-            </div>
-          </div>
+
+
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <h4>EDUCATION</h4>
           <div class="row">
-            <div class="col-md-12">
-              Latrikunda Upper Basic 2007-2010 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
+               <div class="col-md-12" *ngIf="user?.education.length === 0">
+                     <p>No Records Found</p>
+               </div>
+
+            <!-- {{
+               user?.education | json
+            }} -->
+            <div class="col-md-12" *ngFor="let education of user?.education">
+
+                  <h6>{{ education.name }}</h6>
+                  <p>{{education.field}}</p>
+                  <p>{{ education.location }}</p>
+                  <p> {{ education.start_date | date:'MMMM , y' }} </p>
+                  <p> {{ education.end_date | date:'MMMM , y' }} </p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              St Augustines High 2007-2010 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              UTG 2011-2015 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
-            </div>
-          </div>
+
+
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <h4>HONORS AND AWARDS</h4>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12">
               President , ITCA, 2001 - 2018
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <!-- <div class="row">
             <div class="col-md-12">
               Projct Manager -- volo senegal 2001-2009 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
             </div>
@@ -79,7 +81,7 @@
             <div class="col-md-12">
               CEO Founder -- volo senegal 2001-2009 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, voluptas.
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
